@@ -5,7 +5,7 @@ const { GraphQLScalarType } = require('graphql');
 const { Kind } = require('graphql/language');
 const chrono = require('chrono-node');
 
-const schema = readFileSync('schema.graphql', 'UTF-8');
+const schema = readFileSync(require('path').join(process.cwd(), 'schema.graphql'), 'UTF-8');
 const typeDefs = gql(schema);
 
 const mongoUri = 'mongodb://localhost:27017/coronavirus';
