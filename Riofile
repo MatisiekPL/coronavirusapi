@@ -10,4 +10,4 @@ services:
     build:
       repo: https://github.com/MatisiekPL/coronavirusapi
       context: ./scraper
-       imageName: matisiekpl/coronavirusapi-scraper
+      imageName: matisiekpl/coronavirusapi-scraper
