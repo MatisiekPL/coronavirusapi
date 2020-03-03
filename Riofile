@@ -6,6 +6,7 @@ services:
     - coronavirus-mongo:/usr/src/app/.env
     build:
       repo: https://github.com/MatisiekPL/coronavirusapi
+      branch: master
       context: ./scraper
       imageName: matisiekpl/coronavirusapi-scraper
       pushRegistry: docker.io
