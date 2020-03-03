@@ -1,0 +1,13 @@
+services:
+  scraper:
+    image: scraper
+    ports:
+    - 80/http
+    env:
+    - MONGO_URI
+    secrets:
+    - coronavirus-mongo:/usr/src/app/.env
+    build:
+      repo: https://github.com/MatisiekPL/coronavirusapi
+      context: ./scraper
+       imageName: matisiekpl/coronavirusapi-scraper
