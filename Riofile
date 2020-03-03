@@ -8,3 +8,5 @@ services:
       repo: https://github.com/MatisiekPL/coronavirusapi
       context: ./scraper
       imageName: matisiekpl/coronavirusapi-scraper
+      pushRegistry: docker.io
+      pushRegistrySecretName: dockerconfig
