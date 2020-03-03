@@ -1,8 +1,6 @@
 services:
   scraper:
     image: scraper
-    ports:
-    - 80/http
     env:
     - MONGO_URI
     secrets:
