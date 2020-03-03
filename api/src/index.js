@@ -40,7 +40,7 @@ const resolvers = {
     }),
     Query: {
         async countries(parent, { before }, ctx) {
-            totalReqs++;
+            totalReqs.inc();
             before = before == null ? before = (new Date()).toString() : before = chrono.parseDate(before);
             console.log(before);
             const last = (await db.collection('countries').find({
