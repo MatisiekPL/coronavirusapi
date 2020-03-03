@@ -13,6 +13,14 @@ mongoose.connect(mongoUri, { useNewUrlParser: true });
 mongoose.Promise = global.Promise;
 const db = mongoose.connection;
 
+const io = require('@pm2/io');
+
+const totalReqs = io.counter({
+  name: 'Total request count',
+  id: 'app/total/requests'
+});
+
+
 const resolvers = {
     DateTime: new GraphQLScalarType({
         name: 'DateTime',
@@ -32,6 +40,7 @@ const resolvers = {
     }),
     Query: {
         async countries(parent, { before }, ctx) {
+            totalReqs++;
             before = before == null ? before = (new Date()).toString() : before = chrono.parseDate(before);
             console.log(before);
             const last = (await db.collection('countries').find({
