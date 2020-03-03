@@ -40,6 +40,19 @@ class BnonewsSpider(scrapy.Spider):
                         response.xpath('//*[contains(text(), "Last update")]//text()').extract_first().replace(
                             'Last update: ', '').replace('at', '').replace('ET', ''))
                     yield item
+        countries = response.xpath('//table[@class="wp-block-table aligncenter is-style-stripes"]//tbody//tr')
+        if self.countries_collection.count_documents({
+            'time': parser.parse(
+                response.xpath('//*[contains(text(), "Last update")]//text()').extract_first().replace(
+                    'Last update: ', '').replace('at', '').replace('ET', ''))
+        }) == 0:
+            for country in countries[1:]:
+                item = self.convert(country)
+                if item['country'] != 'TOTAL':
+                    item['time'] = parser.parse(
+                        response.xpath('//*[contains(text(), "Last update")]//text()').extract_first().replace(
+                            'Last update: ', '').replace('at', '').replace('ET', ''))
+                    yield item
 
     def convert(self, country):
         item = CoronavirusCountry()
