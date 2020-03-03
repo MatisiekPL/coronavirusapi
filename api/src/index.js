@@ -17,7 +17,7 @@ const io = require('@pm2/io');
 
 const totalReqs = io.counter({
   name: 'Total request count',
-  id: 'app/total/requests'
+  id: 'app/realtime/requests'
 });
 
 
