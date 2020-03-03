@@ -1,0 +1,14 @@
+scalar DateTime
+
+type Country {
+    name: String!
+    deaths: Int!
+    cases: Int!
+    fetched_at: DateTime!
+    fetch_time: String!
+    notes: String
+}
+
+type Query {
+    countries(before: String): [Country!]!
+}

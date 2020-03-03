@@ -1,0 +1,12 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "apollo-server": "^2.10.1",
+    "chrono-node": "^1.4.3",
+    "graphql": "^14.6.0",
+    "mongoose": "^5.9.3"
+  }
+}
