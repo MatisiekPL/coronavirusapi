@@ -1,6 +1,5 @@
 services:
   scraper:
-    image: matisiekpl/coronavirusapi-scraper
     env:
     - MONGO_URI
     secrets:
